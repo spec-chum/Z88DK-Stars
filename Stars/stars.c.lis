@@ -1,0 +1,654 @@
+1     0000              MODULE stars_c
+2     0000              
+3     0000              ;--------------------------------------------------------
+4     0000              ; File Created by SDCC : free open source ANSI-C Compiler
+5     0000              ; Version 3.6.6 #9917 (MSVC)
+6     0000              ;--------------------------------------------------------
+7     0000              ; Processed by Z88DK
+8     0000              ;--------------------------------------------------------
+9     0000              
+10    0000              	EXTERN __divschar
+11    0000              	EXTERN __divschar_callee
+12    0000              	EXTERN __divsint
+13    0000              	EXTERN __divsint_callee
+14    0000              	EXTERN __divslong
+15    0000              	EXTERN __divslong_callee
+16    0000              	EXTERN __divslonglong
+17    0000              	EXTERN __divslonglong_callee
+18    0000              	EXTERN __divsuchar
+19    0000              	EXTERN __divsuchar_callee
+20    0000              	EXTERN __divuchar
+21    0000              	EXTERN __divuchar_callee
+22    0000              	EXTERN __divuint
+23    0000              	EXTERN __divuint_callee
+24    0000              	EXTERN __divulong
+25    0000              	EXTERN __divulong_callee
+26    0000              	EXTERN __divulonglong
+27    0000              	EXTERN __divulonglong_callee
+28    0000              	EXTERN __divuschar
+29    0000              	EXTERN __divuschar_callee
+30    0000              	EXTERN __modschar
+31    0000              	EXTERN __modschar_callee
+32    0000              	EXTERN __modsint
+33    0000              	EXTERN __modsint_callee
+34    0000              	EXTERN __modslong
+35    0000              	EXTERN __modslong_callee
+36    0000              	EXTERN __modslonglong
+37    0000              	EXTERN __modslonglong_callee
+38    0000              	EXTERN __modsuchar
+39    0000              	EXTERN __modsuchar_callee
+40    0000              	EXTERN __moduchar
+41    0000              	EXTERN __moduchar_callee
+42    0000              	EXTERN __moduint
+43    0000              	EXTERN __moduint_callee
+44    0000              	EXTERN __modulong
+45    0000              	EXTERN __modulong_callee
+46    0000              	EXTERN __modulonglong
+47    0000              	EXTERN __modulonglong_callee
+48    0000              	EXTERN __moduschar
+49    0000              	EXTERN __moduschar_callee
+50    0000              	EXTERN __mulint
+51    0000              	EXTERN __mulint_callee
+52    0000              	EXTERN __mullong
+53    0000              	EXTERN __mullong_callee
+54    0000              	EXTERN __mullonglong
+55    0000              	EXTERN __mullonglong_callee
+56    0000              	EXTERN __mulschar
+57    0000              	EXTERN __mulschar_callee
+58    0000              	EXTERN __mulsuchar
+59    0000              	EXTERN __mulsuchar_callee
+60    0000              	EXTERN __muluschar
+61    0000              	EXTERN __muluschar_callee
+62    0000              	EXTERN __rlslonglong
+63    0000              	EXTERN __rlslonglong_callee
+64    0000              	EXTERN __rlulonglong
+65    0000              	EXTERN __rlulonglong_callee
+66    0000              	EXTERN __rrslonglong
+67    0000              	EXTERN __rrslonglong_callee
+68    0000              	EXTERN __rrulonglong
+69    0000              	EXTERN __rrulonglong_callee
+70    0000              	EXTERN ___sdcc_call_hl
+71    0000              	EXTERN ___sdcc_call_iy
+72    0000              	EXTERN ___sdcc_enter_ix
+73    0000              	EXTERN _banked_call
+74    0000              	EXTERN _banked_ret
+75    0000              	EXTERN ___fs2schar
+76    0000              	EXTERN ___fs2schar_callee
+77    0000              	EXTERN ___fs2sint
+78    0000              	EXTERN ___fs2sint_callee
+79    0000              	EXTERN ___fs2slong
+80    0000              	EXTERN ___fs2slong_callee
+81    0000              	EXTERN ___fs2slonglong
+82    0000              	EXTERN ___fs2slonglong_callee
+83    0000              	EXTERN ___fs2uchar
+84    0000              	EXTERN ___fs2uchar_callee
+85    0000              	EXTERN ___fs2uint
+86    0000              	EXTERN ___fs2uint_callee
+87    0000              	EXTERN ___fs2ulong
+88    0000              	EXTERN ___fs2ulong_callee
+89    0000              	EXTERN ___fs2ulonglong
+90    0000              	EXTERN ___fs2ulonglong_callee
+91    0000              	EXTERN ___fsadd
+92    0000              	EXTERN ___fsadd_callee
+93    0000              	EXTERN ___fsdiv
+94    0000              	EXTERN ___fsdiv_callee
+95    0000              	EXTERN ___fseq
+96    0000              	EXTERN ___fseq_callee
+97    0000              	EXTERN ___fsgt
+98    0000              	EXTERN ___fsgt_callee
+99    0000              	EXTERN ___fslt
+100   0000              	EXTERN ___fslt_callee
+101   0000              	EXTERN ___fsmul
+102   0000              	EXTERN ___fsmul_callee
+103   0000              	EXTERN ___fsneq
+104   0000              	EXTERN ___fsneq_callee
+105   0000              	EXTERN ___fssub
+106   0000              	EXTERN ___fssub_callee
+107   0000              	EXTERN ___schar2fs
+108   0000              	EXTERN ___schar2fs_callee
+109   0000              	EXTERN ___sint2fs
+110   0000              	EXTERN ___sint2fs_callee
+111   0000              	EXTERN ___slong2fs
+112   0000              	EXTERN ___slong2fs_callee
+113   0000              	EXTERN ___slonglong2fs
+114   0000              	EXTERN ___slonglong2fs_callee
+115   0000              	EXTERN ___uchar2fs
+116   0000              	EXTERN ___uchar2fs_callee
+117   0000              	EXTERN ___uint2fs
+118   0000              	EXTERN ___uint2fs_callee
+119   0000              	EXTERN ___ulong2fs
+120   0000              	EXTERN ___ulong2fs_callee
+121   0000              	EXTERN ___ulonglong2fs
+122   0000              	EXTERN ___ulonglong2fs_callee
+123   0000              	EXTERN ____sdcc_2_copy_src_mhl_dst_deix
+124   0000              	EXTERN ____sdcc_2_copy_src_mhl_dst_bcix
+125   0000              	EXTERN ____sdcc_4_copy_src_mhl_dst_deix
+126   0000              	EXTERN ____sdcc_4_copy_src_mhl_dst_bcix
+127   0000              	EXTERN ____sdcc_4_copy_src_mhl_dst_mbc
+128   0000              	EXTERN ____sdcc_4_ldi_nosave_bc
+129   0000              	EXTERN ____sdcc_4_ldi_save_bc
+130   0000              	EXTERN ____sdcc_4_push_hlix
+131   0000              	EXTERN ____sdcc_4_push_mhl
+132   0000              	EXTERN ____sdcc_lib_setmem_hl
+133   0000              	EXTERN ____sdcc_ll_add_de_bc_hl
+134   0000              	EXTERN ____sdcc_ll_add_de_bc_hlix
+135   0000              	EXTERN ____sdcc_ll_add_de_hlix_bc
+136   0000              	EXTERN ____sdcc_ll_add_de_hlix_bcix
+137   0000              	EXTERN ____sdcc_ll_add_deix_bc_hl
+138   0000              	EXTERN ____sdcc_ll_add_deix_hlix
+139   0000              	EXTERN ____sdcc_ll_add_hlix_bc_deix
+140   0000              	EXTERN ____sdcc_ll_add_hlix_deix_bc
+141   0000              	EXTERN ____sdcc_ll_add_hlix_deix_bcix
+142   0000              	EXTERN ____sdcc_ll_asr_hlix_a
+143   0000              	EXTERN ____sdcc_ll_asr_mbc_a
+144   0000              	EXTERN ____sdcc_ll_copy_src_de_dst_hlix
+145   0000              	EXTERN ____sdcc_ll_copy_src_de_dst_hlsp
+146   0000              	EXTERN ____sdcc_ll_copy_src_deix_dst_hl
+147   0000              	EXTERN ____sdcc_ll_copy_src_deix_dst_hlix
+148   0000              	EXTERN ____sdcc_ll_copy_src_deixm_dst_hlsp
+149   0000              	EXTERN ____sdcc_ll_copy_src_desp_dst_hlsp
+150   0000              	EXTERN ____sdcc_ll_copy_src_hl_dst_de
+151   0000              	EXTERN ____sdcc_ll_copy_src_hlsp_dst_de
+152   0000              	EXTERN ____sdcc_ll_copy_src_hlsp_dst_deixm
+153   0000              	EXTERN ____sdcc_ll_lsl_hlix_a
+154   0000              	EXTERN ____sdcc_ll_lsl_mbc_a
+155   0000              	EXTERN ____sdcc_ll_lsr_hlix_a
+156   0000              	EXTERN ____sdcc_ll_lsr_mbc_a
+157   0000              	EXTERN ____sdcc_ll_push_hlix
+158   0000              	EXTERN ____sdcc_ll_push_mhl
+159   0000              	EXTERN ____sdcc_ll_sub_de_bc_hl
+160   0000              	EXTERN ____sdcc_ll_sub_de_bc_hlix
+161   0000              	EXTERN ____sdcc_ll_sub_de_hlix_bc
+162   0000              	EXTERN ____sdcc_ll_sub_de_hlix_bcix
+163   0000              	EXTERN ____sdcc_ll_sub_deix_bc_hl
+164   0000              	EXTERN ____sdcc_ll_sub_deix_hlix
+165   0000              	EXTERN ____sdcc_ll_sub_hlix_bc_deix
+166   0000              	EXTERN ____sdcc_ll_sub_hlix_deix_bc
+167   0000              	EXTERN ____sdcc_ll_sub_hlix_deix_bcix
+168   0000              	EXTERN ____sdcc_load_debc_deix
+169   0000              	EXTERN ____sdcc_load_dehl_deix
+170   0000              	EXTERN ____sdcc_load_debc_mhl
+171   0000              	EXTERN ____sdcc_load_hlde_mhl
+172   0000              	EXTERN ____sdcc_store_dehl_bcix
+173   0000              	EXTERN ____sdcc_store_debc_hlix
+174   0000              	EXTERN ____sdcc_store_debc_mhl
+175   0000              	EXTERN ____sdcc_cpu_pop_ei
+176   0000              	EXTERN ____sdcc_cpu_pop_ei_jp
+177   0000              	EXTERN ____sdcc_cpu_push_di
+178   0000              
+179   0000              ;--------------------------------------------------------
+180   0000              ; Public variables in this module
+181   0000              ;--------------------------------------------------------
+182   0000              	GLOBAL _main
+183   0000              	GLOBAL _drawStars
+184   0000              	GLOBAL _setUpStars
+185   0000              	GLOBAL _stars
+186   0000              	GLOBAL _i
+187   0000              ;--------------------------------------------------------
+188   0000              ; Externals used
+189   0000              ;--------------------------------------------------------
+190   0000              	GLOBAL _intrinsic_swap_word_32_fastcall
+191   0000              	GLOBAL _intrinsic_swap_word_32
+192   0000              	GLOBAL _intrinsic_swap_endian_32_fastcall
+193   0000              	GLOBAL _intrinsic_swap_endian_32
+194   0000              	GLOBAL _intrinsic_swap_endian_16_fastcall
+195   0000              	GLOBAL _intrinsic_swap_endian_16
+196   0000              	GLOBAL _intrinsic_return_de
+197   0000              	GLOBAL _intrinsic_return_bc
+198   0000              	GLOBAL _intrinsic_exx
+199   0000              	GLOBAL _intrinsic_ex_de_hl
+200   0000              	GLOBAL _intrinsic_nop
+201   0000              	GLOBAL _intrinsic_im_2
+202   0000              	GLOBAL _intrinsic_im_1
+203   0000              	GLOBAL _intrinsic_im_0
+204   0000              	GLOBAL _intrinsic_retn
+205   0000              	GLOBAL _intrinsic_reti
+206   0000              	GLOBAL _intrinsic_halt
+207   0000              	GLOBAL _intrinsic_ei
+208   0000              	GLOBAL _intrinsic_di
+209   0000              	GLOBAL _intrinsic_stub
+210   0000              	GLOBAL _zx_pattern_fill_callee
+211   0000              	GLOBAL _zx_pattern_fill
+212   0000              	GLOBAL _zx_saddrpup_fastcall
+213   0000              	GLOBAL _zx_saddrpup
+214   0000              	GLOBAL _zx_saddrpright_callee
+215   0000              	GLOBAL _zx_saddrpright
+216   0000              	GLOBAL _zx_saddrpleft_callee
+217   0000              	GLOBAL _zx_saddrpleft
+218   0000              	GLOBAL _zx_saddrpdown_fastcall
+219   0000              	GLOBAL _zx_saddrpdown
+220   0000              	GLOBAL _zx_saddrcup_fastcall
+221   0000              	GLOBAL _zx_saddrcup
+222   0000              	GLOBAL _zx_saddrcright_fastcall
+223   0000              	GLOBAL _zx_saddrcright
+224   0000              	GLOBAL _zx_saddrcleft_fastcall
+225   0000              	GLOBAL _zx_saddrcleft
+226   0000              	GLOBAL _zx_saddrcdown_fastcall
+227   0000              	GLOBAL _zx_saddrcdown
+228   0000              	GLOBAL _zx_saddr2py_fastcall
+229   0000              	GLOBAL _zx_saddr2py
+230   0000              	GLOBAL _zx_saddr2px_fastcall
+231   0000              	GLOBAL _zx_saddr2px
+232   0000              	GLOBAL _zx_saddr2cy_fastcall
+233   0000              	GLOBAL _zx_saddr2cy
+234   0000              	GLOBAL _zx_saddr2cx_fastcall
+235   0000              	GLOBAL _zx_saddr2cx
+236   0000              	GLOBAL _zx_saddr2aaddr_fastcall
+237   0000              	GLOBAL _zx_saddr2aaddr
+238   0000              	GLOBAL _zx_py2saddr_fastcall
+239   0000              	GLOBAL _zx_py2saddr
+240   0000              	GLOBAL _zx_py2aaddr_fastcall
+241   0000              	GLOBAL _zx_py2aaddr
+242   0000              	GLOBAL _zx_pxy2saddr_callee
+243   0000              	GLOBAL _zx_pxy2saddr
+244   0000              	GLOBAL _zx_pxy2aaddr_callee
+245   0000              	GLOBAL _zx_pxy2aaddr
+246   0000              	GLOBAL _zx_px2bitmask_fastcall
+247   0000              	GLOBAL _zx_px2bitmask
+248   0000              	GLOBAL _zx_cy2saddr_fastcall
+249   0000              	GLOBAL _zx_cy2saddr
+250   0000              	GLOBAL _zx_cy2aaddr_fastcall
+251   0000              	GLOBAL _zx_cy2aaddr
+252   0000              	GLOBAL _zx_cxy2saddr_callee
+253   0000              	GLOBAL _zx_cxy2saddr
+254   0000              	GLOBAL _zx_cxy2aaddr_callee
+255   0000              	GLOBAL _zx_cxy2aaddr
+256   0000              	GLOBAL _zx_bitmask2px_fastcall
+257   0000              	GLOBAL _zx_bitmask2px
+258   0000              	GLOBAL _zx_aaddrcup_fastcall
+259   0000              	GLOBAL _zx_aaddrcup
+260   0000              	GLOBAL _zx_aaddrcright_fastcall
+261   0000              	GLOBAL _zx_aaddrcright
+262   0000              	GLOBAL _zx_aaddrcleft_fastcall
+263   0000              	GLOBAL _zx_aaddrcleft
+264   0000              	GLOBAL _zx_aaddrcdown_fastcall
+265   0000              	GLOBAL _zx_aaddrcdown
+266   0000              	GLOBAL _zx_aaddr2saddr_fastcall
+267   0000              	GLOBAL _zx_aaddr2saddr
+268   0000              	GLOBAL _zx_aaddr2py_fastcall
+269   0000              	GLOBAL _zx_aaddr2py
+270   0000              	GLOBAL _zx_aaddr2px_fastcall
+271   0000              	GLOBAL _zx_aaddr2px
+272   0000              	GLOBAL _zx_aaddr2cy_fastcall
+273   0000              	GLOBAL _zx_aaddr2cy
+274   0000              	GLOBAL _zx_aaddr2cx_fastcall
+275   0000              	GLOBAL _zx_aaddr2cx
+276   0000              	GLOBAL _zx_scroll_wc_up_callee
+277   0000              	GLOBAL _zx_scroll_wc_up
+278   0000              	GLOBAL _zx_scroll_up_callee
+279   0000              	GLOBAL _zx_scroll_up
+280   0000              	GLOBAL _zx_cls_wc_callee
+281   0000              	GLOBAL _zx_cls_wc
+282   0000              	GLOBAL _zx_cls_fastcall
+283   0000              	GLOBAL _zx_cls
+284   0000              	GLOBAL _zx_border_fastcall
+285   0000              	GLOBAL _zx_border
+286   0000              	GLOBAL _ulltoa_callee
+287   0000              	GLOBAL _ulltoa
+288   0000              	GLOBAL _strtoull_callee
+289   0000              	GLOBAL _strtoull
+290   0000              	GLOBAL _strtoll_callee
+291   0000              	GLOBAL _strtoll
+292   0000              	GLOBAL _lltoa_callee
+293   0000              	GLOBAL _lltoa
+294   0000              	GLOBAL _llabs_callee
+295   0000              	GLOBAL _llabs
+296   0000              	GLOBAL __lldivu__callee
+297   0000              	GLOBAL __lldivu_
+298   0000              	GLOBAL __lldiv__callee
+299   0000              	GLOBAL __lldiv_
+300   0000              	GLOBAL _atoll_callee
+301   0000              	GLOBAL _atoll
+302   0000              	GLOBAL _realloc_unlocked_callee
+303   0000              	GLOBAL _realloc_unlocked
+304   0000              	GLOBAL _malloc_unlocked_fastcall
+305   0000              	GLOBAL _malloc_unlocked
+306   0000              	GLOBAL _free_unlocked_fastcall
+307   0000              	GLOBAL _free_unlocked
+308   0000              	GLOBAL _calloc_unlocked_callee
+309   0000              	GLOBAL _calloc_unlocked
+310   0000              	GLOBAL _aligned_alloc_unlocked_callee
+311   0000              	GLOBAL _aligned_alloc_unlocked
+312   0000              	GLOBAL _realloc_callee
+313   0000              	GLOBAL _realloc
+314   0000              	GLOBAL _malloc_fastcall
+315   0000              	GLOBAL _malloc
+316   0000              	GLOBAL _free_fastcall
+317   0000              	GLOBAL _free
+318   0000              	GLOBAL _calloc_callee
+319   0000              	GLOBAL _calloc
+320   0000              	GLOBAL _aligned_alloc_callee
+321   0000              	GLOBAL _aligned_alloc
+322   0000              	GLOBAL _utoa_callee
+323   0000              	GLOBAL _utoa
+324   0000              	GLOBAL _ultoa_callee
+325   0000              	GLOBAL _ultoa
+326   0000              	GLOBAL _system_fastcall
+327   0000              	GLOBAL _system
+328   0000              	GLOBAL _strtoul_callee
+329   0000              	GLOBAL _strtoul
+330   0000              	GLOBAL _strtol_callee
+331   0000              	GLOBAL _strtol
+332   0000              	GLOBAL _strtof_callee
+333   0000              	GLOBAL _strtof
+334   0000              	GLOBAL _strtod_callee
+335   0000              	GLOBAL _strtod
+336   0000              	GLOBAL _srand_fastcall
+337   0000              	GLOBAL _srand
+338   0000              	GLOBAL _rand
+339   0000              	GLOBAL _quick_exit_fastcall
+340   0000              	GLOBAL _quick_exit
+341   0000              	GLOBAL _qsort_callee
+342   0000              	GLOBAL _qsort
+343   0000              	GLOBAL _ltoa_callee
+344   0000              	GLOBAL _ltoa
+345   0000              	GLOBAL _labs_fastcall
+346   0000              	GLOBAL _labs
+347   0000              	GLOBAL _itoa_callee
+348   0000              	GLOBAL _itoa
+349   0000              	GLOBAL _ftoh_callee
+350   0000              	GLOBAL _ftoh
+351   0000              	GLOBAL _ftog_callee
+352   0000              	GLOBAL _ftog
+353   0000              	GLOBAL _ftoe_callee
+354   0000              	GLOBAL _ftoe
+355   0000              	GLOBAL _ftoa_callee
+356   0000              	GLOBAL _ftoa
+357   0000              	GLOBAL _exit_fastcall
+358   0000              	GLOBAL _exit
+359   0000              	GLOBAL _dtoh_callee
+360   0000              	GLOBAL _dtoh
+361   0000              	GLOBAL _dtog_callee
+362   0000              	GLOBAL _dtog
+363   0000              	GLOBAL _dtoe_callee
+364   0000              	GLOBAL _dtoe
+365   0000              	GLOBAL _dtoa_callee
+366   0000              	GLOBAL _dtoa
+367   0000              	GLOBAL _bsearch_callee
+368   0000              	GLOBAL _bsearch
+369   0000              	GLOBAL _atol_fastcall
+370   0000              	GLOBAL _atol
+371   0000              	GLOBAL _atoi_fastcall
+372   0000              	GLOBAL _atoi
+373   0000              	GLOBAL _atof_fastcall
+374   0000              	GLOBAL _atof
+375   0000              	GLOBAL _atexit_fastcall
+376   0000              	GLOBAL _atexit
+377   0000              	GLOBAL _at_quick_exit_fastcall
+378   0000              	GLOBAL _at_quick_exit
+379   0000              	GLOBAL _abs_fastcall
+380   0000              	GLOBAL _abs
+381   0000              	GLOBAL _abort
+382   0000              	GLOBAL __strtou__callee
+383   0000              	GLOBAL __strtou_
+384   0000              	GLOBAL __strtoi__callee
+385   0000              	GLOBAL __strtoi_
+386   0000              	GLOBAL __random_uniform_xor_8__fastcall
+387   0000              	GLOBAL __random_uniform_xor_8_
+388   0000              	GLOBAL __random_uniform_xor_32__fastcall
+389   0000              	GLOBAL __random_uniform_xor_32_
+390   0000              	GLOBAL __random_uniform_cmwc_8__fastcall
+391   0000              	GLOBAL __random_uniform_cmwc_8_
+392   0000              	GLOBAL __shellsort__callee
+393   0000              	GLOBAL __shellsort_
+394   0000              	GLOBAL __quicksort__callee
+395   0000              	GLOBAL __quicksort_
+396   0000              	GLOBAL __insertion_sort__callee
+397   0000              	GLOBAL __insertion_sort_
+398   0000              	GLOBAL __ldivu__callee
+399   0000              	GLOBAL __ldivu_
+400   0000              	GLOBAL __ldiv__callee
+401   0000              	GLOBAL __ldiv_
+402   0000              	GLOBAL __divu__callee
+403   0000              	GLOBAL __divu_
+404   0000              	GLOBAL __div__callee
+405   0000              	GLOBAL __div_
+406   0000              	GLOBAL _GLOBAL_ZX_PORT_7FFD
+407   0000              	GLOBAL _GLOBAL_ZX_PORT_1FFD
+408   0000              	GLOBAL _GLOBAL_ZX_PORT_FE
+409   0000              ;--------------------------------------------------------
+410   0000              ; special function registers
+411   0000              ;--------------------------------------------------------
+412   0000              defc _IO_FE	=	0x00fe
+413   0000              defc _IO_1FFD	=	0x1ffd
+414   0000              defc _IO_7FFD	=	0x7ffd
+415   0000              ;--------------------------------------------------------
+416   0000              ; ram data
+417   0000              ;--------------------------------------------------------
+418   0000              	SECTION bss_compiler
+419   0000              _i:
+420   0000  00 00       	DEFS 2
+421   0002              _stars:
+422   0002  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+      0022  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+      0042  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+      0062  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+      0082  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                        	DEFS 150
+423   0098              ;--------------------------------------------------------
+424   0098              ; ram data
+425   0098              ;--------------------------------------------------------
+426   0098              
+427   0098              IF 0
+428   0098              
+429   0098              ; .area _INITIALIZED removed by z88dk
+430   0098              
+431   0098              
+432   0098              ENDIF
+433   0098              
+434   0098              ;--------------------------------------------------------
+435   0098              ; absolute external ram data
+436   0098              ;--------------------------------------------------------
+437   0098              	SECTION IGNORE
+438   0000              ;--------------------------------------------------------
+439   0000              ; global & static initialisations
+440   0000              ;--------------------------------------------------------
+441   0000              	SECTION code_crt_init
+442   0000              ;--------------------------------------------------------
+443   0000              ; Home
+444   0000              ;--------------------------------------------------------
+445   0000              	SECTION IGNORE
+446   0000              ;--------------------------------------------------------
+447   0000              ; code
+448   0000              ;--------------------------------------------------------
+449   0000              	SECTION code_compiler
+450   0000              ;	---------------------------------
+451   0000              ; Function setUpStars
+452   0000              ; ---------------------------------
+453   0000              _setUpStars:
+454   0000  21 00 00    	ld	hl,0x0000
+455   0003  22 00 00    	ld	(_i),hl
+456   0006              l_setUpStars_00102:
+457   0006  2A 00 00    	ld	hl,(_i)
+458   0009  4D          	ld	c,l
+459   000A  44          	ld	b,h
+460   000B  29          	add	hl, hl
+461   000C  09          	add	hl, bc
+462   000D  01 02 00    	ld	bc,_stars
+463   0010  09          	add	hl,bc
+464   0011  E5          	push	hl
+465   0012  CD 00 00    	call	_rand
+466   0015  11 FF 00    	ld	de,0x00ff
+467   0018  D5          	push	de
+468   0019  E5          	push	hl
+469   001A  CD 00 00    	call	__modsint_callee
+470   001D  C1          	pop	bc
+471   001E  7D          	ld	a, l
+472   001F  02          	ld	(bc), a
+473   0020  2A 00 00    	ld	hl,(_i)
+474   0023  4D          	ld	c,l
+475   0024  44          	ld	b,h
+476   0025  29          	add	hl, hl
+477   0026  09          	add	hl, bc
+478   0027  01 02 00    	ld	bc,_stars
+479   002A  09          	add	hl,bc
+480   002B  23          	inc	hl
+481   002C  E5          	push	hl
+482   002D  CD 00 00    	call	_rand
+483   0030  11 BF 00    	ld	de,0x00bf
+484   0033  D5          	push	de
+485   0034  E5          	push	hl
+486   0035  CD 00 00    	call	__modsint_callee
+487   0038  C1          	pop	bc
+488   0039  7D          	ld	a, l
+489   003A  02          	ld	(bc), a
+490   003B  2A 00 00    	ld	hl,(_i)
+491   003E  4D          	ld	c,l
+492   003F  44          	ld	b,h
+493   0040  29          	add	hl, hl
+494   0041  09          	add	hl, bc
+495   0042  01 02 00    	ld	bc,_stars
+496   0045  09          	add	hl,bc
+497   0046  23          	inc	hl
+498   0047  23          	inc	hl
+499   0048  45          	ld	b, l
+500   0049  4C          	ld	c, h
+501   004A  C5          	push	bc
+502   004B  CD 00 00    	call	_rand
+503   004E  11 04 00    	ld	de,0x0004
+504   0051  D5          	push	de
+505   0052  E5          	push	hl
+506   0053  CD 00 00    	call	__modsint_callee
+507   0056  C1          	pop	bc
+508   0057  5D          	ld	e,l
+509   0058  1C          	inc	e
+510   0059  68          	ld	l, b
+511   005A  61          	ld	h, c
+512   005B  73          	ld	(hl), e
+513   005C  2A 00 00    	ld	hl,(_i)
+514   005F  4D          	ld	c,l
+515   0060  44          	ld	b,h
+516   0061  29          	add	hl, hl
+517   0062  09          	add	hl, bc
+518   0063  01 02 00    	ld	bc,_stars
+519   0066  09          	add	hl,bc
+520   0067  4D          	ld	c,l
+521   0068  44          	ld	b,h
+522   0069  23          	inc	hl
+523   006A  56          	ld	d, (hl)
+524   006B  0A          	ld	a, (bc)
+525   006C  5F          	ld	e, a
+526   006D  D5          	push	de
+527   006E  CD 00 00    	call	_zx_pxy2saddr_callee
+528   0071  EB          	ex	de,hl
+529   0072  2A 00 00    	ld	hl,(_i)
+530   0075  4D          	ld	c,l
+531   0076  44          	ld	b,h
+532   0077  29          	add	hl, hl
+533   0078  09          	add	hl, bc
+534   0079  01 02 00    	ld	bc,_stars
+535   007C  09          	add	hl,bc
+536   007D  6E          	ld	l, (hl)
+537   007E  CD 00 00    	call	_zx_px2bitmask_fastcall
+538   0081  7D          	ld	a, l
+539   0082  12          	ld	(de), a
+540   0083  21 00 00    	ld	hl,_i
+541   0086  34          	inc	(hl)
+542   0087  20 02       	jr	NZ,l_setUpStars_00110
+543   0089  23          	inc	hl
+544   008A  34          	inc	(hl)
+545   008B              l_setUpStars_00110:
+546   008B  21 00 00    	ld	hl,_i
+547   008E  7E          	ld	a, (hl)
+548   008F  D6 32       	sub	a,0x32
+549   0091  23          	inc	hl
+550   0092  7E          	ld	a, (hl)
+551   0093  DE 00       	sbc	a,0x00
+552   0095  DA 06 00    	jp	C, l_setUpStars_00102
+553   0098  C9          	ret
+554   0099              	SECTION code_compiler
+555   0099              ;	---------------------------------
+556   0099              ; Function drawStars
+557   0099              ; ---------------------------------
+558   0099              _drawStars:
+559   0099  DD E5       	push	ix
+560   009B  DD 21 00 00 	ld	ix,0
+561   009F  DD 39       	add	ix,sp
+562   00A1  F5          	push	af
+563   00A2  3B          	dec	sp
+564   00A3  01 02 00    	ld	bc,_stars
+565   00A6              l_drawStars_00101:
+566   00A6  79          	ld	a, c
+567   00A7  D6 98       	sub	a,+((_stars+0x0096) & 0xFF)
+568   00A9  20 05       	jr	NZ,l_drawStars_00115
+569   00AB  78          	ld	a, b
+570   00AC  D6 00       	sub	a,+((_stars+0x0096) / 256)
+571   00AE  28 4E       	jr	Z,l_drawStars_00104
+572   00B0              l_drawStars_00115:
+573   00B0  21 01 00    	ld	hl,0x0001
+574   00B3  09          	add	hl,bc
+575   00B4  DD 75 FE    	ld	(ix-2),l
+576   00B7  DD 74 FF    	ld	(ix-1),h
+577   00BA  56          	ld	d, (hl)
+578   00BB  0A          	ld	a, (bc)
+579   00BC  5F          	ld	e,a
+580   00BD  D5          	push	de
+581   00BE  CD 00 00    	call	_zx_pxy2saddr_callee
+582   00C1  7E          	ld	a,(hl)
+583   00C2  EB          	ex	de,hl
+584   00C3  DD 77 FD    	ld	(ix-3),a
+585   00C6  0A          	ld	a, (bc)
+586   00C7  6F          	ld	l, a
+587   00C8  C5          	push	bc
+588   00C9  CD 00 00    	call	_zx_px2bitmask_fastcall
+589   00CC  C1          	pop	bc
+590   00CD  7D          	ld	a,l
+591   00CE  DD AE FD    	xor	a,(ix-3)
+592   00D1  12          	ld	(de), a
+593   00D2  0A          	ld	a, (bc)
+594   00D3  5F          	ld	e, a
+595   00D4  69          	ld	l, c
+596   00D5  60          	ld	h, b
+597   00D6  23          	inc	hl
+598   00D7  23          	inc	hl
+599   00D8  56          	ld	d, (hl)
+600   00D9  7B          	ld	a, e
+601   00DA  92          	sub	a, d
+602   00DB  02          	ld	(bc), a
+603   00DC  DD 6E FE    	ld	l,(ix-2)
+604   00DF  DD 66 FF    	ld	h,(ix-1)
+605   00E2  56          	ld	d, (hl)
+606   00E3  5F          	ld	e,a
+607   00E4  D5          	push	de
+608   00E5  CD 00 00    	call	_zx_pxy2saddr_callee
+609   00E8  7E          	ld	a,(hl)
+610   00E9  EB          	ex	de,hl
+611   00EA  DD 77 FD    	ld	(ix-3),a
+612   00ED  0A          	ld	a, (bc)
+613   00EE  6F          	ld	l, a
+614   00EF  C5          	push	bc
+615   00F0  CD 00 00    	call	_zx_px2bitmask_fastcall
+616   00F3  C1          	pop	bc
+617   00F4  7D          	ld	a,l
+618   00F5  DD AE FD    	xor	a,(ix-3)
+619   00F8  12          	ld	(de), a
+620   00F9  03          	inc	bc
+621   00FA  03          	inc	bc
+622   00FB  03          	inc	bc
+623   00FC  18 A8       	jr	l_drawStars_00101
+624   00FE              l_drawStars_00104:
+625   00FE  DD F9       	ld	sp, ix
+626   0100  DD E1       	pop	ix
+627   0102  C9          	ret
+628   0103              	SECTION code_compiler
+629   0103              ;	---------------------------------
+630   0103              ; Function main
+631   0103              ; ---------------------------------
+632   0103              _main:
+633   0103  FB          	ei
+634   0104  2E 00       	ld	l,0x00
+635   0106  CD 00 00    	call	_zx_border_fastcall
+636   0109  2E 07       	ld	l,0x07
+637   010B  CD 00 00    	call	_zx_cls_fastcall
+638   010E  CD 00 00    	call	_setUpStars
+639   0111  CD 99 00    	call	_drawStars
+640   0114              l_main_00102:
+641   0114  2E 05       	ld	l,0x05
+642   0116  CD 00 00    	call	_zx_border_fastcall
+643   0119  CD 99 00    	call	_drawStars
+644   011C  2E 00       	ld	l,0x00
+645   011E  CD 00 00    	call	_zx_border_fastcall
+646   0121  76          	halt
+647   0122  18 F0       	jr	l_main_00102
+648   0124              	SECTION IGNORE
+649   0000              

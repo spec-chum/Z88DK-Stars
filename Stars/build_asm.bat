@@ -1,0 +1,1 @@
+zcc +zx -vn -a --c-code-in-asm -SO3 -clib=sdcc_iy --max-allocs-per-node200000 --reserve-regs-iy stars.c
