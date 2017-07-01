@@ -2,7 +2,7 @@
 #include <arch\zx.h>
 #include <intrinsic.h>
 
-#define NUMSTARS 68
+#define NUMSTARS 75
 #define NUMLAYERS 4
 
 typedef unsigned char uchar;
@@ -11,6 +11,7 @@ typedef unsigned int uint;
 struct Star
 {
 	uchar *yAddress;
+	uchar bitmask;
 	uchar x;
 	uchar speed;
 } stars[NUMSTARS];
@@ -21,8 +22,9 @@ void setUpStars()
 
 	while (currentStar != stars + sizeof(stars) / sizeof(*stars))
 	{
-		currentStar->yAddress = zx_py2saddr(rand() % 191);
-		currentStar->x = rand() % 255;
+		currentStar->yAddress = zx_py2saddr((uint)rand() % 191);
+		currentStar->x = (uchar)rand();
+		currentStar->bitmask = zx_px2bitmask(currentStar->x);
 		currentStar->speed = 1 + rand() % NUMLAYERS;
 		
 		*(currentStar->yAddress + (currentStar->x >> 3)) = zx_px2bitmask(currentStar->x);
@@ -37,9 +39,9 @@ void drawStars()
 
 	while (currentStar != stars + sizeof(stars) / sizeof(*stars))
 	{
-		*(currentStar->yAddress + (currentStar->x >> 3)) ^= zx_px2bitmask(currentStar->x);
+		*(currentStar->yAddress + (currentStar->x >> 3)) ^= currentStar->bitmask;
 		currentStar->x -= currentStar->speed;
-		*(currentStar->yAddress + (currentStar->x >> 3)) ^= zx_px2bitmask(currentStar->x);
+		*(currentStar->yAddress + (currentStar->x >> 3)) ^= (currentStar->bitmask = zx_px2bitmask(currentStar->x));
 
 		currentStar++;
 	}

@@ -67,7 +67,7 @@
     <NMakeOutput>Stars.exe</NMakeOutput>
     <NMakeCleanCommandLine>nmake clean</NMakeCleanCommandLine>
     <NMakeReBuildCommandLine>nmake clean all</NMakeReBuildCommandLine>
-    <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakePreprocessorDefinitions>WIN32;__SDCC;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
     <NMakeIncludeSearchPath>D:\Retro\Speccy\z88dk\include\_DEVELOPMENT\sdcc;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -83,7 +83,7 @@
     <NMakeOutput>Stars.exe</NMakeOutput>
     <NMakeCleanCommandLine>nmake clean</NMakeCleanCommandLine>
     <NMakeReBuildCommandLine>nmake clean all</NMakeReBuildCommandLine>
-    <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakePreprocessorDefinitions>WIN32;__SDCC;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
     <NMakeIncludeSearchPath>D:\Retro\Speccy\z88dk\include\_DEVELOPMENT\sdcc;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
